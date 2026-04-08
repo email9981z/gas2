@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Revenda Liquigás - Liquigás Revenda Digital</title>
+    <title>Revenda Liquigás - Entrega em 20 Minutos - R$ 89,90</title>
     <!-- Fontes e Ícones -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -12,11 +12,13 @@
         :root {
             --primary-green: #006f4d;
             --dark-green: #00402a;
-            --whatsapp-green: #32cd32;
+            --whatsapp-green: #25D366;
             --call-blue: #0038f0;
             --light-bg: #f4fff1;
             --white: #ffffff;
             --text-color: #333;
+            --accent-yellow: #ffcc00;
+            --price-red: #e74c3c;
         }
 
         * {
@@ -28,7 +30,7 @@
         body {
             font-family: 'Open Sans', Arial, sans-serif;
             line-height: 1.6;
-            color: var(--text-color );
+            color: var(--text-color);
             background-color: var(--white);
         }
 
@@ -42,7 +44,7 @@
         .hero {
             background-color: var(--primary-green);
             color: var(--white);
-            padding: 80px 0;
+            padding: 60px 0;
             position: relative;
             overflow: hidden;
         }
@@ -51,48 +53,85 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
+            gap: 40px;
         }
 
         .hero-text {
-            flex: 1;
+            flex: 1.2;
             z-index: 2;
         }
 
         .hero-text h1 {
-            font-size: 4rem;
+            font-size: 3.5rem;
             font-weight: 800;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
             line-height: 1.1;
         }
 
-        .hero-text .subtitle {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 30px;
-            max-width: 500px;
+        .hero-text .delivery-badge {
+            display: inline-block;
+            background-color: var(--accent-yellow);
+            color: var(--dark-green);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: 800;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            animation: pulse 2s infinite;
         }
 
-        .hero-text .description {
-            font-size: 1.2rem;
-            font-style: italic;
-            margin-bottom: 40px;
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .hero-text .subtitle {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .price-highlight {
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 15px;
+            border-left: 5px solid var(--accent-yellow);
+            margin-bottom: 30px;
+        }
+
+        .price-tag {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--accent-yellow);
+            display: block;
+        }
+
+        .price-label {
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .hero-image {
-            flex: 1;
+            flex: 0.8;
             display: flex;
             justify-content: flex-end;
+            position: relative;
         }
 
         .hero-image img {
             max-width: 100%;
             height: auto;
+            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3));
             animation: float 3s ease-in-out infinite;
         }
 
         @keyframes float {
             0% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
+            50% { transform: translateY(-15px); }
             100% { transform: translateY(0px); }
         }
 
@@ -101,46 +140,75 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: 15px 30px;
+            padding: 18px 35px;
             border-radius: 50px;
             text-decoration: none;
-            font-weight: 700;
-            font-size: 0.9rem;
-            transition: transform 0.3s ease, background-color 0.3s ease;
+            font-weight: 800;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
             margin-right: 15px;
             margin-bottom: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
 
         .btn i {
-            margin-right: 10px;
-            font-size: 1.2rem;
+            margin-right: 12px;
+            font-size: 1.4rem;
         }
 
         .btn-whatsapp {
             background-color: var(--whatsapp-green);
             color: var(--white);
+            border: 2px solid var(--whatsapp-green);
         }
 
         .btn-whatsapp:hover {
-            background-color: #28a745;
-            transform: scale(1.05);
+            background-color: #1ebc57;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
         }
 
         .btn-call {
-            background-color: var(--call-blue);
+            background-color: transparent;
             color: var(--white);
+            border: 2px solid var(--white);
         }
 
         .btn-call:hover {
-            background-color: #0028b0;
-            transform: scale(1.05);
+            background-color: var(--white);
+            color: var(--primary-green);
+            transform: translateY(-3px);
+        }
+
+        /* Floating WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--whatsapp-green);
+            color: white;
+            width: 70px;
+            height: 70px;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 35px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            background-color: #1ebc57;
         }
 
         /* Schedule */
         .schedule {
             background-color: var(--dark-green);
             color: var(--white);
-            padding: 30px 0;
+            padding: 25px 0;
         }
 
         .schedule-grid {
@@ -151,7 +219,7 @@
         }
 
         .schedule-item h3 {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-weight: 700;
             text-align: left;
         }
@@ -159,13 +227,14 @@
         .schedule-item .label {
             font-weight: 700;
             font-size: 0.9rem;
+            color: var(--accent-yellow);
         }
 
         .schedule-item .time {
             font-size: 0.9rem;
         }
 
-        /* Distributor */
+        /* Product Section */
         .distributor {
             background-color: var(--light-bg);
             padding: 80px 0;
@@ -179,126 +248,68 @@
             margin-bottom: 10px;
         }
 
-        .section-subtitle {
-            font-size: 1.2rem;
-            margin-bottom: 50px;
-        }
-
         .product-card {
             background-color: var(--white);
-            border-radius: 10px;
-            padding: 40px;
+            border-radius: 20px;
+            padding: 50px;
             display: flex;
             align-items: center;
-            max-width: 900px;
+            max-width: 1000px;
             margin: 0 auto;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
             text-align: left;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-card::before {
+            content: 'O MAIS PEDIDO';
+            position: absolute;
+            top: 20px;
+            right: -35px;
+            background: var(--price-red);
+            color: white;
+            padding: 5px 40px;
+            transform: rotate(45deg);
+            font-weight: 800;
+            font-size: 0.8rem;
         }
 
         .product-image {
             flex: 1;
+            text-align: center;
         }
 
         .product-image img {
-            max-width: 200px;
+            max-width: 250px;
         }
 
         .product-info {
-            flex: 2;
-            padding-left: 40px;
+            flex: 1.5;
+            padding-left: 50px;
         }
 
         .product-info h3 {
-            font-size: 1.5rem;
+            font-size: 2rem;
             font-weight: 800;
-            margin-bottom: 20px;
-        }
-
-        .product-info p {
-            margin-bottom: 30px;
-        }
-
-        /* Other Sizes */
-        .other-sizes {
-            padding: 80px 0;
-            background-color: var(--white);
-        }
-
-        .other-sizes-content {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .other-sizes .text-content {
-            flex: 1;
-        }
-
-        .other-sizes h2 {
             color: var(--primary-green);
-            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .product-info .price-box {
+            margin-bottom: 25px;
+        }
+
+        .product-info .main-price {
+            font-size: 3.5rem;
             font-weight: 800;
-            margin-bottom: 20px;
+            color: var(--primary-green);
+            line-height: 1;
         }
 
-        .other-sizes p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-        }
-
-        .other-sizes .image-content {
-            flex: 1;
-            display: flex;
-            justify-content: flex-end;
-        }
-
-        .other-sizes .image-content img {
-            max-width: 100%;
-        }
-
-        /* Security */
-        .security {
-            background-color: var(--white);
-            padding: 80px 0;
-        }
-
-        .security-content {
-            display: flex;
-            align-items: center;
-        }
-
-        .security-image {
-            flex: 1;
-        }
-
-        .security-image img {
-            max-width: 100%;
-        }
-
-        .security-text {
-            flex: 1;
-            padding-left: 60px;
-        }
-
-        .security-text .tag {
-            color: #f1c40f;
-            font-weight: 700;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            display: block;
-            margin-bottom: 10px;
-        }
-
-        .security-text h2 {
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 20px;
-            line-height: 1.2;
-        }
-
-        .security-text p {
-            margin-bottom: 30px;
+        .product-info .price-detail {
+            font-size: 1rem;
+            color: #666;
         }
 
         /* Footer */
@@ -314,59 +325,49 @@
             margin-bottom: 20px;
         }
 
-        .footer a {
-            color: var(--white);
-            text-decoration: underline;
-        }
-
         /* Responsive */
-        @media (max-width: 768px) {
-            .hero-content, .product-card, .other-sizes-content, .security-content {
+        @media (max-width: 992px) {
+            .hero-content {
                 flex-direction: column;
                 text-align: center;
             }
+            .hero-text h1 { font-size: 2.8rem; }
+            .hero-image { justify-content: center; margin-top: 30px; }
+            .product-card { flex-direction: column; padding: 30px; }
+            .product-info { padding-left: 0; padding-top: 30px; text-align: center; }
+            .schedule-grid { grid-template-columns: 1fr 1fr; gap: 20px; }
+            .schedule-item h3 { text-align: center; grid-column: span 2; }
+        }
 
-            .hero-text h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero-image, .security-image, .other-sizes .image-content {
-                margin-top: 40px;
-                justify-content: center;
-            }
-
-            .schedule-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-
-            .schedule-item h3 {
-                text-align: center;
-            }
-
-            .product-info {
-                padding-left: 0;
-                padding-top: 30px;
-            }
-
-            .security-text {
-                padding-left: 0;
-                padding-top: 40px;
-            }
+        @media (max-width: 576px) {
+            .schedule-grid { grid-template-columns: 1fr; }
+            .schedule-item h3 { grid-column: span 1; }
+            .hero-text h1 { font-size: 2.2rem; }
+            .btn { width: 100%; margin-right: 0; }
         }
     </style>
 </head>
 <body>
+
+    <a href="https://wa.me/5519999999999?text=Olá! Gostaria de pedir um botijão P13 de R$ 89,90 com entrega em 20 minutos." class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
     <header class="hero">
         <div class="container hero-content">
             <div class="hero-text">
+                <div class="delivery-badge"><i class="fas fa-bolt"></i> Entrega em 20 Minutos</div>
                 <h1>ACABOU O GÁS?</h1>
-                <p class="subtitle">Não se preocupe, tem sempre uma revenda Liquigás pertinho de você.</p>
-                <p class="description">Disk Gás em Indaiatuba  
-Compre agora mesmo!</p>
+                <p class="subtitle">Sua Revenda Liquigás em Indaiatuba com o melhor preço da região!</p>
+                
+                <div class="price-highlight">
+                    <span class="price-label">Botijão P13 por apenas:</span>
+                    <span class="price-tag">R$ 89,90</span>
+                </div>
+
                 <div class="hero-buttons">
-                    <a href="https://wa.me/5519999999999" class="btn btn-whatsapp">
-                        <i class="fab fa-whatsapp"></i> PEÇA NO WHATSAPP
+                    <a href="https://wa.me/5519999999999?text=Olá! Gostaria de pedir um botijão P13 de R$ 89,90 com entrega em 20 minutos." class="btn btn-whatsapp">
+                        <i class="fab fa-whatsapp"></i> PEÇA AGORA NO WHATSAPP
                     </a>
                     <a href="tel:+5519999999999" class="btn btn-call">
                         <i class="fas fa-phone-alt"></i> LIGUE AGORA
@@ -374,7 +375,7 @@ Compre agora mesmo!</p>
                 </div>
             </div>
             <div class="hero-image">
-                <img src="assets/botijao_principal.png" alt="Botijão Liquigás">
+                <img src="assets/botijao_principal.png" alt="Botijão Liquigás P13">
             </div>
         </div>
     </header>
@@ -382,18 +383,18 @@ Compre agora mesmo!</p>
     <section class="schedule">
         <div class="container schedule-grid">
             <div class="schedule-item">
-                <h3>Horário de Atendimento</h3>
+                <h3><i class="far fa-clock"></i> Horário de Atendimento</h3>
             </div>
             <div class="schedule-item">
                 <p class="label">Segunda a Sexta</p>
-                <p class="time">7h às 19h</p>
+                <p class="time">7h às 20h</p>
             </div>
             <div class="schedule-item">
                 <p class="label">Sábados</p>
                 <p class="time">7h às 16h</p>
             </div>
             <div class="schedule-item">
-                <p class="label">Domingo e feriados</p>
+                <p class="label">Domingo e Feriados</p>
                 <p class="time">7h às 12h30</p>
             </div>
         </div>
@@ -401,22 +402,23 @@ Compre agora mesmo!</p>
 
     <section class="distributor">
         <div class="container">
-            <h2 class="section-title">Distribuidor autorizado Liquigás</h2>
-            <p class="section-subtitle">Sua escolha confiável para entrega de gás de cozinha</p>
+            <h2 class="section-title">Oferta Especial do Dia</h2>
+            <p class="section-subtitle">Qualidade Liquigás com entrega ultra rápida</p>
             
             <div class="product-card">
                 <div class="product-image">
-                    <img src="assets/p13_liquigas.png" alt="Gás P-13">
+                    <img src="assets/p13_liquigas.png" alt="Gás P-13 Liquigás">
                 </div>
                 <div class="product-info">
-                    <h3>GÁS P-13</h3>
-                    <p>O P-13 é o mais usado nas casas dos brasileiros, nós da Liquigás apostamos que você também tem um, não é mesmo? Ele é fácil de manusear o que permite que qualquer pessoa faça a troca de maneira ágil e simples, ótimo para aquele momento em que o gás acaba na hora do almoço.</p>
+                    <h3>GÁS P-13 (Residencial)</h3>
+                    <div class="price-box">
+                        <div class="main-price">R$ 89,90</div>
+                        <div class="price-detail">Preço para retirada ou entrega rápida</div>
+                    </div>
+                    <p>O botijão azul da Liquigás é sinônimo de segurança e rendimento para sua cozinha. Garantimos a pesagem correta e instalação gratuita.</p>
                     <div class="product-buttons">
-                        <a href="#" class="btn btn-whatsapp">
-                            <i class="fab fa-whatsapp"></i> PEÇA JÁ NO WHATSAPP
-                        </a>
-                        <a href="#" class="btn btn-call">
-                            <i class="fas fa-phone-alt"></i> LIGUE AGORA
+                        <a href="https://wa.me/5519999999999?text=Olá! Gostaria de pedir um botijão P13 de R$ 89,90 com entrega em 20 minutos." class="btn btn-whatsapp">
+                            <i class="fab fa-whatsapp"></i> PEDIR PELO WHATSAPP
                         </a>
                     </div>
                 </div>
@@ -424,67 +426,13 @@ Compre agora mesmo!</p>
         </div>
     </section>
 
-    <section class="other-sizes">
-        <div class="container other-sizes-content">
-            <div class="text-content">
-                <h2>Está procurando outro tamanho de botijão?</h2>
-                <p>Fale com a gente pelo WhatsApp e consulte a disponibilidade</p>
-                <a href="#" class="btn btn-whatsapp">
-                    <i class="fab fa-whatsapp"></i> PEÇA JÁ NO WHATSAPP
-                </a>
-            </div>
-            <div class="image-content">
-                <img src="assets/todos_botijoes.png" alt="Todos os Botijões">
-            </div>
-        </div>
-    </section>
-
-    <section class="security">
-        <div class="container security-content">
-            <div class="security-image">
-                <img src="assets/mascote_valdemar.png" alt="Mascote Liquigás">
-            </div>
-            <div class="security-text">
-                <span class="tag">SEGURANÇA LIQUIGÁS <i class="fas fa-caret-right"></i></span>
-                <h2>PORQUE SOMOS UMA REVENDA AUTORIZADA LIQUIGÁS?</h2>
-                <p>Com a revenda autorizada Liquigás você pode ter a certeza de que está obtendo produtos que atendem a rigorosos padrões de segurança, qualidade e prestação de serviços na instalação do seu botijão e agilidade no seu atendimento.</p>
-                <a href="#" class="btn btn-whatsapp">
-                    <i class="fab fa-whatsapp"></i> PEÇA JÁ NO WHATSAPP
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <footer class="footer">
-        <div class="container footer-content">
+    <section class="footer">
+        <div class="container">
             <img src="assets/logo_liquigas.png" alt="Logo Liquigás" class="footer-logo">
-            <p>&copy; 2025 | Liquigás | Todos os direitos reservados | <a href="#">Política de Privacidade</a></p>
+            <p><strong>Revenda Autorizada Liquigás - Indaiatuba/SP</strong></p>
+            <p style="margin-top: 10px; font-size: 0.9rem; opacity: 0.8;">&copy; 2026 | Todos os direitos reservados. Imagens ilustrativas.</p>
         </div>
-    </footer>
+    </section>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', ( ) => {
-            // Efeito de rolagem suave para links internos
-            const links = document.querySelectorAll('a[href^="#"]');
-            
-            links.forEach(link => {
-                link.addEventListener('click', (e) => {
-                    const targetId = link.getAttribute('href');
-                    if (targetId === '#') return;
-                    
-                    e.preventDefault();
-                    const targetElement = document.querySelector(targetId);
-                    if (targetElement) {
-                        window.scrollTo({
-                            top: targetElement.offsetTop,
-                            behavior: 'smooth'
-                        });
-                    }
-                });
-            });
-
-            console.log('Site Liquigás Réplica carregado com sucesso!');
-        });
-    </script>
 </body>
 </html>
