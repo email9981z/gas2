@@ -3,783 +3,172 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Revenda Autorizada Liquigás em Indaiatuba. Botijão P13 por R$ 89,90 com entrega em 20 minutos. Qualidade e segurança garantidas.">
-    <meta name="keywords" content="gás, liquigás, botijão, P13, Indaiatuba, entrega rápida">
-    <title>Revenda Liquigás Indaiatuba | Botijão P13 R$ 89,90 | Entrega 20 Minutos</title>
+    <title>Copagaz - Chama no Zap</title>
     
-    <!-- Fontes e Ícones -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Bootstrap CSS via CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <!-- Bootstrap Icons via CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     
     <style>
-        :root {
-            --primary-green: #006f4d;
-            --dark-green: #00402a;
-            --whatsapp-green: #25D366;
-            --light-green: #e8f5e9;
-            --accent-yellow: #ffc107;
-            --price-red: #d32f2f;
-            --text-dark: #1a1a1a;
-            --text-light: #555;
-            --border-light: #e0e0e0;
-            --white: #ffffff;
+        /* Fontes originais via link direto */
+        @font-face {
+            font-family: 'GTAmerica';
+            src: url('https://www2.copagaz.com.br/chamanozap/font/GT-America-Compressed-Medium.otf') format('opentype');
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
+        @font-face {
+            font-family: 'GTAmericaRegular';
+            src: url('https://www2.copagaz.com.br/chamanozap/font/GT-America-Standard-Regular.otf') format('opentype');
         }
 
         body {
-            font-family: 'Poppins', sans-serif;
-            line-height: 1.6;
-            color: var(--text-dark);
-            background-color: var(--white);
+            height: 115vh;
+            background-image: url('https://www2.copagaz.com.br/chamanozap/img/fundo.jpg');
+            background-repeat: no-repeat;
+            background-color: #243836;
+            background-position: top;
+            margin: 0;
+            padding: 0;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* ===== HEADER / HERO ===== */
-        .hero {
-            background: linear-gradient(135deg, var(--primary-green) 0%, var(--dark-green) 100%);
-            color: var(--white);
-            padding: 70px 0;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -10%;
-            width: 500px;
-            height: 500px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 50%;
-            z-index: 0;
-        }
-
-        .hero-content {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 50px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero-text {
-            flex: 1.2;
-        }
-
-        .trust-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: rgba(255, 255, 255, 0.15);
-            padding: 10px 20px;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin-bottom: 20px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .trust-badge i {
-            color: var(--accent-yellow);
-        }
-
-        .hero-text h1 {
-            font-size: 3.5rem;
-            font-weight: 800;
-            margin-bottom: 15px;
+        h1 {
+            font-family: 'GTAmerica', sans-serif;
+            font-size: 7.5em;
             line-height: 1.1;
-            letter-spacing: -1px;
-        }
-
-        .hero-text .subtitle {
-            font-size: 1.3rem;
-            font-weight: 500;
-            margin-bottom: 30px;
-            opacity: 0.95;
-        }
-
-        .delivery-highlight {
-            background: rgba(255, 193, 7, 0.15);
-            border-left: 4px solid var(--accent-yellow);
-            padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 30px;
-            backdrop-filter: blur(10px);
-        }
-
-        .delivery-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: var(--accent-yellow);
-            color: var(--text-dark);
-            padding: 10px 20px;
-            border-radius: 50px;
-            font-weight: 800;
-            font-size: 1.1rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            animation: pulse-badge 2s infinite;
-        }
-
-        @keyframes pulse-badge {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-        }
-
-        .price-display {
-            margin-top: 15px;
-            font-size: 1.1rem;
-            font-weight: 600;
-        }
-
-        .price-display .amount {
-            font-size: 2.8rem;
-            font-weight: 800;
-            color: var(--accent-yellow);
-            display: block;
-            margin-top: 5px;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-            margin-top: 30px;
-        }
-
-        .hero-image {
-            flex: 0.8;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .hero-image img {
-            max-width: 100%;
-            height: auto;
-            filter: drop-shadow(0 15px 35px rgba(0, 0, 0, 0.3));
-            animation: float 3s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-        }
-
-        /* ===== BUTTONS ===== */
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            padding: 16px 32px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .btn i {
-            font-size: 1.3rem;
-        }
-
-        .btn-whatsapp {
-            background: var(--whatsapp-green);
-            color: var(--white);
-        }
-
-        .btn-whatsapp:hover {
-            background: #1ebc57;
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
-        }
-
-        .btn-call {
-            background: transparent;
-            color: var(--white);
-            border: 2px solid var(--white);
-        }
-
-        .btn-call:hover {
-            background: var(--white);
-            color: var(--primary-green);
-            transform: translateY(-3px);
-        }
-
-        /* ===== FLOATING WHATSAPP ===== */
-        .whatsapp-float {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: var(--whatsapp-green);
-            color: white;
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 35px;
-            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
-            z-index: 1000;
-            transition: all 0.3s ease;
-            text-decoration: none;
-        }
-
-        .whatsapp-float:hover {
-            transform: scale(1.15);
-            background: #1ebc57;
-            box-shadow: 0 8px 30px rgba(37, 211, 102, 0.6);
-        }
-
-        /* ===== SCHEDULE SECTION ===== */
-        .schedule {
-            background: linear-gradient(135deg, var(--dark-green) 0%, var(--primary-green) 100%);
-            color: var(--white);
-            padding: 40px 0;
-            border-top: 3px solid var(--accent-yellow);
-        }
-
-        .schedule-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 30px;
-            align-items: center;
-        }
-
-        .schedule-item {
-            text-align: center;
-        }
-
-        .schedule-item h3 {
-            font-size: 1.1rem;
-            font-weight: 700;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-        }
-
-        .schedule-item .label {
-            font-weight: 700;
-            font-size: 0.95rem;
-            color: var(--accent-yellow);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .schedule-item .time {
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-top: 5px;
-        }
-
-        /* ===== PRODUCT SECTION ===== */
-        .product-section {
-            background: linear-gradient(to bottom, var(--light-green), var(--white));
-            padding: 80px 0;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-
-        .section-title {
-            color: var(--primary-green);
-            font-size: 2.8rem;
-            font-weight: 800;
-            margin-bottom: 10px;
-            letter-spacing: -0.5px;
-        }
-
-        .section-subtitle {
-            font-size: 1.2rem;
-            color: var(--text-light);
-            font-weight: 500;
-        }
-
-        .product-card {
-            background: var(--white);
-            border-radius: 20px;
-            padding: 60px;
-            display: flex;
-            align-items: center;
-            gap: 50px;
-            max-width: 1000px;
-            margin: 0 auto;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
-            position: relative;
-            border: 1px solid var(--border-light);
-        }
-
-        .badge-featured {
-            position: absolute;
-            top: -15px;
-            right: 30px;
-            background: var(--price-red);
-            color: white;
-            padding: 8px 24px;
-            border-radius: 50px;
-            font-weight: 800;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            box-shadow: 0 4px 15px rgba(211, 47, 47, 0.3);
-        }
-
-        .product-image {
-            flex: 0.9;
-            text-align: center;
-        }
-
-        .product-image img {
-            max-width: 280px;
-            height: auto;
-            filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.1));
-        }
-
-        .product-info {
-            flex: 1.1;
-        }
-
-        .product-info h2 {
-            font-size: 2.2rem;
-            font-weight: 800;
-            color: var(--primary-green);
-            margin-bottom: 15px;
-            letter-spacing: -0.5px;
-        }
-
-        .price-box {
-            background: var(--light-green);
-            padding: 20px;
-            border-radius: 15px;
-            margin-bottom: 25px;
-            border-left: 4px solid var(--primary-green);
-        }
-
-        .price-box .price-label {
-            font-size: 0.95rem;
-            color: var(--text-light);
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 8px;
-        }
-
-        .price-box .price-amount {
-            font-size: 3.2rem;
-            font-weight: 800;
-            color: var(--primary-green);
-            line-height: 1;
-        }
-
-        .product-info p {
-            color: var(--text-light);
-            margin-bottom: 25px;
-            line-height: 1.8;
-            font-size: 1.05rem;
-        }
-
-        .product-features {
-            list-style: none;
-            margin-bottom: 30px;
-        }
-
-        .product-features li {
-            padding: 10px 0;
-            padding-left: 30px;
-            position: relative;
-            color: var(--text-light);
-            font-weight: 500;
-        }
-
-        .product-features li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: var(--whatsapp-green);
-            font-weight: 800;
-            font-size: 1.3rem;
-        }
-
-        /* ===== TRUST SECTION ===== */
-        .trust-section {
-            background: var(--white);
-            padding: 80px 0;
-            border-top: 1px solid var(--border-light);
-        }
-
-        .trust-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 40px;
+            color: #e48030; 
+            text-transform: uppercase; 
             margin-top: 50px;
         }
 
-        .trust-card {
-            text-align: center;
-            padding: 30px;
-            background: var(--light-green);
-            border-radius: 15px;
-            transition: all 0.3s ease;
+        h3 {
+            margin-left: 15px; 
+            font-size: 2.5em;
+            color: #f0b03d;
+            font-weight: bold;
         }
 
-        .trust-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 111, 77, 0.15);
+        p {
+            font-family: 'GTAmericaRegular', sans-serif;
+            line-height: 1.2;
+            font-size: 2.0em;
+            color: #f0b03d;
         }
 
-        .trust-card i {
-            font-size: 3rem;
-            color: var(--primary-green);
-            margin-bottom: 15px;
+        span {
+            color: #f0b03d;
+            text-decoration: underline; 
+            font-weight: bold;
         }
 
-        .trust-card h3 {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: var(--primary-green);
-            margin-bottom: 10px;
+        .span2 {
+            color: #ff8a30; 
+            font-weight: bold; 
+            text-decoration: none !important;
         }
 
-        .trust-card p {
-            color: var(--text-light);
-            font-size: 0.95rem;
+        .margemlateral {
+            margin-left: 60px;
         }
 
-        /* ===== FOOTER ===== */
-        .footer {
-            background: linear-gradient(135deg, var(--primary-green) 0%, var(--dark-green) 100%);
-            color: var(--white);
-            padding: 50px 0 30px;
-            text-align: center;
-            border-top: 3px solid var(--accent-yellow);
-        }
-
-        .footer-logo {
-            max-width: 120px;
-            margin-bottom: 20px;
-            filter: brightness(0) invert(1);
-        }
-
-        .footer-content {
-            margin-bottom: 30px;
-        }
-
-        .footer-content h3 {
-            font-size: 1.3rem;
-            font-weight: 700;
-            margin-bottom: 10px;
-        }
-
-        .footer-content p {
-            font-size: 0.95rem;
-            opacity: 0.9;
-            margin-bottom: 8px;
-        }
-
-        .footer-contact {
-            margin: 20px 0;
-        }
-
-        .footer-contact a {
-            color: var(--accent-yellow);
+        a.btn-whatsapp {
+            background-color: #ff8a30; 
+            width: 300px;
+            color: white;
+            font-weight: bold;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            border-radius: 50px;
+            font-size: 2rem;
             text-decoration: none;
-            font-weight: 600;
-            transition: opacity 0.3s ease;
+            display: inline-block;
+            text-align: center;
         }
 
-        .footer-contact a:hover {
-            opacity: 0.8;
+        a.btn-whatsapp:hover {
+            background-color: #e48030;
+            color: white;
         }
 
-        .footer-bottom {
-            border-top: 1px solid rgba(255, 255, 255, 0.2);
-            padding-top: 20px;
-            font-size: 0.85rem;
-            opacity: 0.8;
-        }
+        /* Responsividade */
+        @media (max-width: 991.98px) { 
+            body {
+                background-image: url('https://www2.copagaz.com.br/chamanozap/img/fundoMobile.jpg');
+                background-position: bottom; 
+                height: 1080px;           
+            }
 
-        /* ===== RESPONSIVE ===== */
-        @media (max-width: 1024px) {
-            .hero-content {
-                flex-direction: column;
+            h1 {
+                padding-top: 100px; 
+                font-size: 2.5em; 
                 text-align: center;
-                gap: 30px;
+                margin-top: 50px !important;
             }
 
-            .hero-text h1 {
-                font-size: 2.8rem;
+            p.fonteMobile {
+                font-size: 18px !important; 
+                margin-top: 10px !important; 
+                text-align: center !important;
             }
 
-            .product-card {
-                flex-direction: column;
-                padding: 40px;
-                gap: 30px;
+            a.btn-whatsapp {
+                width: 200px; 
+                font-size: 20px !important; 
+                margin: 0 auto; 
+                display: block;
             }
 
-            .schedule-grid {
-                grid-template-columns: repeat(2, 1fr);
+            h3 {
+                text-align: center; 
+                margin-top: 30px !important; 
+                font-size: 45px;
+                margin-left: 0;
             }
 
-            .trust-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .hero-text h1 {
-                font-size: 2.2rem;
+            .margemlateral {
+                margin-left: 0px;
             }
 
-            .schedule-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .schedule-item h3 {
-                grid-column: span 1;
-            }
-
-            .product-card {
-                padding: 30px;
-            }
-
-            .product-image img {
-                max-width: 200px;
-            }
-
-            .product-info h2 {
-                font-size: 1.8rem;
-            }
-
-            .price-box .price-amount {
-                font-size: 2.5rem;
-            }
-
-            .hero-buttons {
-                flex-direction: column;
-            }
-
-            .btn {
-                width: 100%;
-            }
-
-            .whatsapp-float {
-                width: 60px;
-                height: 60px;
-                font-size: 28px;
-                bottom: 20px;
-                right: 20px;
+            .topo {
+                margin-top: 40px !important;
             }
         }
 
-        @media (max-width: 480px) {
-            .hero {
-                padding: 40px 0;
+        @media (max-width: 430px) {
+            p.fonteMobile {
+                font-size: 1.0em !important;
             }
-
-            .hero-text h1 {
-                font-size: 1.8rem;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .product-card {
-                padding: 20px;
-            }
-
-            .product-info h2 {
-                font-size: 1.5rem;
-            }
-
-            .price-box .price-amount {
-                font-size: 2rem;
-            }
-
-            .trust-badge {
-                font-size: 0.8rem;
-                padding: 8px 15px;
+            h3 {
+                font-size: 35px;
             }
         }
     </style>
 </head>
 <body>
+    <div class="container">
+        <div class="row mt-3 topo">
+            <div class="col margemlateral">
+                <h1 class="text-left mb-5">
+                    Copagaz no Zap.<br>
+                    <span> Chamou, <br> pediu, chegou.</span> 
+                </h1>
 
-    <!-- Floating WhatsApp Button -->
-    <a href="https://wa.me/5519999999999?text=Olá! Gostaria de pedir um botijão P13 de R$ 89,90 com entrega em 20 minutos." class="whatsapp-float" target="_blank" title="Fale conosco no WhatsApp">
-        <i class="fab fa-whatsapp"></i>
-    </a>
+                <p class="text-left fonteMobile mt-5 mb-5">
+                    Agora você consegue pedir <br> um botijão Copagaz sem sair <br>
+                    do seu Whatsapp.<br> <span class="span2" style="font-weight: bold !important;">É fácil, seguro e super prático.</span> <br>
+                    Clique no botão abaixo<br> e adicione o nosso contato!
+                </p>
 
-    <!-- HERO SECTION -->
-    <header class="hero">
-        <div class="container hero-content">
-            <div class="hero-text">
-                <div class="trust-badge">
-                    <i class="fas fa-check-circle"></i>
-                    Revenda Autorizada Liquigás
-                </div>
-
-                <h1>ACABOU O GÁS?</h1>
-                <p class="subtitle">Entrega rápida, segura e com qualidade garantida em Indaiatuba</p>
-
-                <div class="delivery-highlight">
-                    <div class="delivery-badge">
-                        <i class="fas fa-bolt"></i>
-                        Entrega em 20 Minutos
-                    </div>
-                    <div class="price-display">
-                        Botijão P13
-                        <span class="amount">R$ 89,90</span>
-                    </div>
-                </div>
-
-                <div class="hero-buttons">
-                    <a href="https://wa.me/5519999999999?text=Olá! Gostaria de pedir um botijão P13 de R$ 89,90 com entrega em 20 minutos." class="btn btn-whatsapp">
-                        <i class="fab fa-whatsapp"></i> PEDIR AGORA
-                    </a>
-                    <a href="tel:+5519999999999" class="btn btn-call">
-                        <i class="fas fa-phone-alt"></i> LIGAR
-                    </a>
-                </div>
-            </div>
-
-            <div class="hero-image">
-                <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663128123462/MKnmOdXmmYVoQOVd.png" alt="Botijão P13 Liquigás">
+                <a class="btn-whatsapp" href="https://wa.me/558007072672?text=Oi!%20Tenho%20interesse%20e%20queria%20saber%20mais." target="_blank" role="button">
+                    <i class="bi bi-whatsapp"></i> PEÇA AGORA
+                </a>
+                
+                <h3 class="fw-bold">0800-707-2672</h3>
             </div>
         </div>
-    </header>
+    </div>
 
-    <!-- SCHEDULE SECTION -->
-    <section class="schedule">
-        <div class="container">
-            <div class="schedule-grid">
-                <div class="schedule-item">
-                    <h3><i class="far fa-clock"></i> Horários de Atendimento</h3>
-                </div>
-                <div class="schedule-item">
-                    <p class="label">Segunda a Sexta</p>
-                    <p class="time">7h às 20h</p>
-                </div>
-                <div class="schedule-item">
-                    <p class="label">Sábados</p>
-                    <p class="time">7h às 16h</p>
-                </div>
-                <div class="schedule-item">
-                    <p class="label">Domingo e Feriados</p>
-                    <p class="time">7h às 12h30</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- PRODUCT SECTION -->
-    <section class="product-section">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Oferta Principal</h2>
-                <p class="section-subtitle">O botijão mais procurado pelos brasileiros</p>
-            </div>
-
-            <div class="product-card">
-                <div class="badge-featured">Mais Vendido</div>
-                <div class="product-image">
-                    <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663128123462/MKnmOdXmmYVoQOVd.png" alt="Botijão P13 Liquigás">
-                </div>
-                <div class="product-info">
-                    <h2>Botijão P13 (13kg)</h2>
-                    <div class="price-box">
-                        <div class="price-label">Preço Especial</div>
-                        <div class="price-amount">R$ 89,90</div>
-                    </div>
-                    <p>O P13 é o botijão mais utilizado nas residências brasileiras. Perfeito para cozinha, aquecedor e churrasqueira. Qualidade Liquigás com segurança garantida.</p>
-                    <ul class="product-features">
-                        <li>Pesagem correta e garantida</li>
-                        <li>Instalação gratuita</li>
-                        <li>Entrega em 20 minutos</li>
-                        <li>Produto 100% seguro</li>
-                    </ul>
-                    <a href="https://wa.me/5519999999999?text=Olá! Gostaria de pedir um botijão P13 de R$ 89,90 com entrega em 20 minutos." class="btn btn-whatsapp">
-                        <i class="fab fa-whatsapp"></i> SOLICITAR AGORA
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- TRUST SECTION -->
-    <section class="trust-section">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Por Que Escolher a Gente?</h2>
-                <p class="section-subtitle">Confiança e qualidade em cada entrega</p>
-            </div>
-
-            <div class="trust-grid">
-                <div class="trust-card">
-                    <i class="fas fa-shipping-fast"></i>
-                    <h3>Entrega Rápida</h3>
-                    <p>Chegamos em até 20 minutos no seu endereço com segurança e qualidade.</p>
-                </div>
-                <div class="trust-card">
-                    <i class="fas fa-shield-alt"></i>
-                    <h3>100% Seguro</h3>
-                    <p>Revenda autorizada Liquigás com todos os certificados de segurança.</p>
-                </div>
-                <div class="trust-card">
-                    <i class="fas fa-check-double"></i>
-                    <h3>Qualidade Garantida</h3>
-                    <p>Produtos originais com pesagem correta e instalação profissional.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer class="footer">
-        <div class="container footer-content">
-            <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663128123462/zLdjTBLeobdFPemw.png" alt="Logo Liquigás" class="footer-logo">
-            <h3>Revenda Autorizada Liquigás</h3>
-            <p>Indaiatuba - São Paulo</p>
-            
-            <div class="footer-contact">
-                <p><strong>Fale Conosco:</strong></p>
-                <a href="https://wa.me/5519999999999">WhatsApp: (19) 99999-9999</a><br>
-                <a href="tel:+5519999999999">Telefone: (19) 99999-9999</a>
-            </div>
-
-            <div class="footer-bottom">
-                <p>&copy; 2026 Revenda Liquigás Indaiatuba | Todos os direitos reservados</p>
-                <p>Imagens e marcas são propriedade da Liquigás Distribuidora S.A.</p>
-            </div>
-        </div>
-    </footer>
-
+    <!-- Bootstrap JS via CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
